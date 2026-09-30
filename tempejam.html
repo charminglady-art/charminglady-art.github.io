@@ -258,10 +258,9 @@
     })();
 </script>
 
-    // Powers any .image-scroller on the page: duplicates the track so the
-    // loop is seamless and animates it right-to-left. A button toggles
-    // pause/play (replacing the old pause-on-hover, which touch devices
-    // can't trigger). Starts paused for anyone with reduced motion set.
+<script>
+    // Powers any .image-scroller on the page
+
     (function () {
       document.querySelectorAll('.image-scroller').forEach(function (wrap) {
         var track = wrap.querySelector('.image-scroller-track');
@@ -305,108 +304,7 @@
   </script>
 
   <script>
-    // Powers the mobile hamburger toggle for .overlay-nav
-    (function () {
-      var nav = document.querySelector('.overlay-nav');
-      var toggle = document.querySelector('.nav-toggle');
-      if (!nav || !toggle) return;
-
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          nav.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    })();
-  </script>
-
-   <script>
-    // Powers the mobile hamburger toggle for .overlay-nav
-    (function () {
-      var nav = document.querySelector('.overlay-nav');
-      var toggle = document.querySelector('.nav-toggle');
-      if (!nav || !toggle) return;
-
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      // Close the menu after picking a link, so it doesn't stay open
-      // when returning to this page or navigating within it
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          nav.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    })();
-
-    // Powers the Stats animation
-    document.addEventListener('DOMContentLoaded', () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // animate once, then stop watching
-      }
-    });
-  }, {
-    threshold: 0.15,        // trigger when 15% of element is visible
-    rootMargin: '0px 0px -50px 0px' // trigger slightly before fully in view
-  });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-});
-  </script>
-
-  <script>
-    // Powers the .video-duo block: each video only plays while it's
-    // actually scrolled into view (paused otherwise, so two portrait
-    // clips aren't both decoding off-screen), and each has its own
-    // unmute toggle since browsers won't allow autoplay-with-sound.
-    (function () {
-      var items = document.querySelectorAll('.video-duo-item');
-      if (!items.length) return;
-
-      items.forEach(function (item) {
-        var video = item.querySelector('.video-duo-video');
-        var toggle = item.querySelector('.video-mute-toggle');
-        var icon = toggle.querySelector('.mute-icon');
-
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              video.play().catch(function () {});
-            } else {
-              video.pause();
-            }
-          });
-        }, { threshold: 0.25 });
-        observer.observe(video);
-
-        toggle.addEventListener('click', function () {
-          video.muted = !video.muted;
-          var isMuted = video.muted;
-          toggle.setAttribute('aria-pressed', String(!isMuted));
-          toggle.setAttribute('aria-label', isMuted ? 'Unmute video' : 'Mute video');
-          icon.innerHTML = isMuted ? '&#128264;' : '&#128266;';
-        });
-      });
-    })();
-  </script>
-
-  <script>
     // Lightbox: click any image inside .image-scroller-track to enlarge it.
-    // Uses a delegated click listener (attached to document) instead of
-    // per-image listeners, because the image-scroller script above
-    // duplicates the track's images via innerHTML += innerHTML, which
-    // would wipe out any listeners bound directly to the original images.
     (function () {
       var lightbox = document.getElementById('scroller-lightbox');
       var lightboxImg = document.getElementById('scroller-lightbox-img');
@@ -441,6 +339,25 @@
         }
       });
     })();
+  </script>
+
+  <script>
+    // Powers the Stats animation
+    document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // animate once, then stop watching
+      }
+    });
+  }, {
+    threshold: 0.15,        // trigger when 15% of element is visible
+    rootMargin: '0px 0px -50px 0px' // trigger slightly before fully in view
+  });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+});
   </script>
 
 </body>
