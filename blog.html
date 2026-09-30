@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000"> <!-- sets the browser bar color on mobile -->
+    <link rel="canonical" href="https://charminlady.com/blog.html">
+
+    <link rel="icon" href="images/FavIcon.jpg" type="image/jpg" /> 
+
+  <title>
+    Blog | Charmin' Lady
+  </title>
+
+    <meta name="description" content="Charmin' designs by a real class act | Charmin' Lady">
+
+<meta property="og:site_name" content="Charmin' Lady">
+<meta property="og:url" content="https://charminlady.com/blog.html">
+<meta property="og:title" content="Blog | Charmin' Lady">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Charmin' designs by a real class act | Charmin' Lady">
+
+
+  <link rel="stylesheet" href="styles.css" type="text/css" media="all" >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+  html, body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.container {
+  flex: 1 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+    .content {
+      flex: 2;
+      padding: 20px;
+      min-width: 300px;
+    }
+    .sidebar {
+      flex: 1;
+      border-left: 1px solid #ccc;
+      padding: 20px;
+      min-width: 200px;
+    }
+    .carousel {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+.carousel img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background-color: #000;
+}
+    .carousel-caption {
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .carousel-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+    }
+    .carousel-buttons button {
+      margin: 0 10px;
+    }
+    .carousel-thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      gap: 1px;
+      margin-top: 10px;
+    }
+    .carousel-thumbnails img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      background-color: #000;
+      cursor: pointer;
+      opacity: 0.6;
+      border: 2px solid transparent;
+      transition: opacity 0.2s ease, border-color 0.2s ease;
+    }
+    .carousel-thumbnails img:hover {
+      opacity: 0.9;
+    }
+    .carousel-thumbnails img.active-thumb {
+      opacity: 1;
+      border-color: #ea118d;
+    }
+    .breadcrumb {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .breadcrumb a {
+      color: #aaa;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover,
+    .breadcrumb a:focus {
+      color: #ea118d;
+    }
+    .breadcrumb .breadcrumb-current {
+      color: #fff;
+    }
+    .blog-post {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 1rem;
+      border: none;
+      font-family: sans-serif;
+    }
+    .back-to-top {
+      display: inline-block;
+      margin-top: 1.5rem;
+    }
+    .post-list-item {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .post-list-item:hover,
+    .post-list-item:focus-visible {
+      color: #ea118d;
+    }
+    .post-list-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .post-list-item h5, 
+    .post-list-item p {
+      margin: 0;
+    }
+
+    .post-list-item.active {
+    background-color: #333;
+    border-left: 4px solid #ea118d;
+    padding-left: 11px; 
+    }
+
+    
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        max-height: none;
+        border-left: none;
+        border-top: 1px solid #ccc;
+      }
+    }
+ </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div id="top"></div>
+
+  <header>
+    <div class="header-top">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logos/CharminLady_FullLogo.png" alt="Charmin' Lady home" style="height: 200px">
+        </a>
+      </div>
+    </div>
+  </header>
+
+<hr class="white-line nav-divider" aria-hidden="true">
+
+  <nav aria-label="Portfolio filters">
+    <ul>
+      <li class="has-dropdown">
+        <a href="index.html#all" data-filter="all">Projects</a>
+        <ul class="dropdown">
+          <li><a href="index.html#exhibits" data-filter="exhibits">Exhibits</a></li>
+          <li><a href="index.html#logo-design" data-filter="logo-design">Logo Design</a></li>
+          <li><a href="index.html#illustration" data-filter="illustration">Illustration</a></li>
+          <li><a href="index.html#stickers" data-filter="stickers">Stickers</a></li>
+          <li><a href="index.html#campaign" data-filter="campaign">Campaign</a></li>
+          <li><a href="index.html#tshirt" data-filter="tshirt">T-Shirts</a></li>
+          <li><a href="index.html#book-layout" data-filter="book-layout">Book Layout</a></li>
+          <li><a href="index.html#video" data-filter="video">Video</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+ <hr class="white-line nav-divider" aria-hidden="true">
+
+
+  <main id="main-content">
+  <div class="container">
+    <!-- Blog Content -->
+    <div class="content">
+      
+
+      <div class="blog-post" id="post-1"> 
+    <p class="breadcrumb" id="post-breadcrumb"></p>
+    <div class="carousel">
+      <img id="carousel-image" src="" alt="Slide" />
+      <div class="carousel-caption" id="carousel-caption"></div>
+      <div class="carousel-thumbnails" id="carousel-thumbnails"></div>
+    </div>
+    <h2 id="post-title"></h2>
+    <p id="post-location-date"></p>
+    <div id="post-content"></div>
+    <a href="#top" class="back-to-top">&#8593;Back to Top</a>
+  </div>
+
+      <!-- Add more posts here -->
+    </div>
+
+    <!-- Blog Sidebar -->
+    <div class="sidebar" id="post-list">
+      
+    </div>
+  </div>
+
+   
+
+  <script>
+    const posts = [
+
+  //post 8
+  {
+    id: "post-8",
+    title: "Le Smol",
+    location: "Rocket Space Gallery at Danelle Plaza",
+    date: "August 2026",
+    content: `<p>I love drawing architecture. The blue house is the Ashbury Coffee House in Willow, IL. It's a community staple and bona fide third-space, especially for people in the alt-rock scene. To paint the windows, I brought out the glowing, black-light paints again.</p>
+    <p>The red house is Tempe's very own Petersen House Museum, which is open for tours in the winter.</p>`,
+    images: [
+      { src: "images/blog/2026/LeSmol/Ashbury.png", caption: "Ashbury Coffee House in Willow, Illinois" },
+      { src: "images/blog/2026/LeSmol/Ashbury_wip.jpg", caption: "Fluorescent paints for the light in the windows." },
+      { src: "images/blog/2026/LeSmol/PetersenHouse.png", caption: "Petersen House Museum in Tempe, Arizona" },
+      { src: "images/blog/2026/LeSmol/PetersenHouse_lineart.jpg", caption: "Adding lines before painting." },
+      { src: "images/blog/2026/LeSmol/LeSmol_01.jpg", caption: "Paintings at Rocket Space Gallery" }
+    ],
+    thumbnail: "images/blog/Thumbs/LeSmol.png"
+  },
+
+  //post 7
+  {
+    id: "post-7",
+    title: "Ranfla Vida: Local Lowrider History",
+    location: "Tempe History Museum",
+    date: "March 2026",
+    content: `<p>The Ranfla Vida exhibit turned out even more people than Dry Surf. Which was crazy, considering it was a smolderingly hot day outside, but the car clubs came anyway.</p>
+    <p>I'm ashamed to admit I had never had much reverence for car shows before this. I didn't think of it as an art. I guess that's the power of museums though, they open your eyes.</p>
+    <p>The curator told me that the lowriders really liked my logo and asked him who had done it. It was great to know that my work was recognized and appreciated by this community. Whenever I wear my Ranfla Vida shirt around town, someone always stops and asks me about it.</p>`,
+    images: [
+      { src: "images/blog/2026/RanflaVida/RanflaVida_1.jpg", caption: "Outdoor car show. Photo courtesy of Arianna Grainey" },
+      { src: "images/blog/2026/RanflaVida/RanflaVida_2.jpg", caption: "Lowrider bikes!" },
+      { src: "images/blog/2026/RanflaVida/RanflaVida_3.jpg", caption: "Ranfla Vida Plaque. Photo courtesy of Arianna Grainey" }
+    ],
+    thumbnail: "images/blog/Thumbs/RanflaVida_Thumb_2026.jpg"
+  },
+
+  //post 6
+  {
+    id: "post-6",
+    title: "Nature Wins",
+    location: "Rocket Space Gallery at Danelle Plaza",
+    date: "August 2025",
+    content: `<p>TMAC needed wall art to round out their new show. The only requirement: fit the theme of "Nature Wins" and use fluorescent paint.</p>
+    <p>This painting is based on a photo I took in Jerome, AZ and is the first piece in what I'm planning as a full series on the town. My back still hurts just looking at this one. The brickwork alone took 12 hours of standing and leaning into some pretty uncomfortable positions.</p>
+    <p>This is actually my second attempt at the piece. The first was done in oils, and I rushed the brick details so much that I kept having to fix them. The whole thing was never going to be finished, so I called it quits. My experience with Knicker Poster Colours from the Tiny Art Show taught me how to plan better, so I used them again here, and I think I've finally found my medium.</p>`,
+    images: [
+      { src: "images/blog/2025/NatureWins.jpg", caption: "Brickwork, three hours in." },
+      { src: "images/blog/2025/NatureWins2.jpg", caption: "15 hours later and my back is killing me." },
+      { src: "images/blog/2025/NatureWins3.jpg", caption: "Finished at last!" },
+      { src: "images/blog/2025/NatureWins4.jpg", caption: "How it looked at the exhibit." },
+      { src: "images/blog/2025/NatureWins5.jpg", caption: "What a great turnout." }
+    ],
+    thumbnail: "images/blog/Thumbs/NatureWins_Thumb_2025.jpg"
+  },
+
+  //post 5
+  {
+    id: "post-5",
+    title: "The Autoist, Races for the Vanderbilt Cup",
+    location: "",
+    date: "July 2025",
+    content: `<p>I was thrilled when my friend, the author George Montgomery, asked me to illustrate the cover for his sequel. Before cars ran on gas, they ran on steam, which makes sense once you think of a car as a train without rails. I put a lot of research into Stanley Steamers, but honestly, it's the brickwork that makes this piece.</p>
+    <p>I started with a full grayscale version in graphite, took good photos and scans, then moved on to colored pencil. I'd researched the techniques and materials I'd need, but still ran into trouble. Rather than push through it, I scrapped the colored pencil layer, went back to the grayscale image and finished the coloring in Photoshop.</p>`,
+    images: [
+      { src: "images/blog/2025/TheAutoist_Final.jpg", caption: "Final cover design with digital coloring." },
+      { src: "images/blog/2025/TheAutoist_lineart.jpg", caption: "Just the lines." },
+      { src: "images/blog/2025/TheAutoist_Graphite.jpg", caption: "Graphite base. I love drawing bricks." }
+    ],
+    thumbnail: "images/blog/Thumbs/TheAutoist_Thumb_2025.jpg"
+  },
+
+  //post 4
+  {
+    id: "post-4",
+    title: "Tiny Art Show",
+    location: "Tempe Public Library",
+    date: "July 2025",
+    content: `<p>The prompt was simple: make any art you want on a provided 3x3 inch canvas. It was the perfect excuse to try out my new Knicker Poster Colour set.</p>
+    <p>Since it's the Tiny Art Show, I thought it'd be funny to paint something bigger than its actual size. I've been collecting bottle caps for years (one day they'll be their own project), so I picked one with the most perfect crease, snapped a few reference photos and got to work. The Coca-Cola script font was too beautiful not to paint.</p>
+    <p>The whole thing took about three hours, and there's something really rewarding about finishing a piece in a single day.</p>`,
+    images: [
+      { src: "images/blog/2025/TPL_TinyArtShow.png", caption: "The Entire Tiny Art Show" },
+      { src: "images/blog/2025/TPL_TinyArtShow2.png", caption: "How cute!" },
+      { src: "images/blog/2025/TPL_TinyArtShow3.png", caption: "Bottle Cap in Sand." }
+    ],
+    thumbnail: "images/blog/Thumbs/TinyArtShow_Thumb_2025.jpg"
+  },
+
+  //post 3
+  {
+    id: "post-3",
+    title: "She Deck",
+    location: "Rocket Space Gallery at Danelle Plaza",
+    date: "June 2025",
+    content: `<p>She Deck was a companion show to Dry Surf, organized by the Tempe Music and Arts Coalition. The rules were simple: art on skate decks, or art about skating, as long as it fit a female-forward theme.</p>
+    <p>I decided to honor my grandma and since you're on this website, you already know how that turned out. I love the way this piece came together.</p>
+    <p>This was also my first time experimenting with spray paint. I figured an hour in the Arizona sun was enough to dry each layer, but sanding between coats told a different story. The white layer kept bleeding into the green. With the deadline closing in, I put the board down, emailed TMAC my plans and asked for an extension. They said yes. The next day, I sanded the whole thing down and started fresh.</p>
+    <p>I still like the little mistakes that made it into the final piece. Getting my grandma's likeness right was tricky, but I think I pulled it off.</p>
+    <p>The board sold on opening night to a B-25 fan. He recognized what it was right away.</p>`,
+    images: [
+      { src: "images/blog/2025/CharminLady_SheDeck.png", caption: "Initial sketch and photo" },
+      { src: "images/blog/2025/CharminLady_SheDeck2.png", caption: "Spraypaint stencils" },
+      { src: "images/blog/2025/CharminLady_SheDeck3.png", caption: "The final product" },
+      { src: "images/blog/2025/CharminLady_SheDeck4.png", caption: "There she is!" },
+      { src: "images/blog/2025/CharminLady_SheDeck5.png", caption: "A packed event" },
+      { src: "images/blog/2025/CharminLady_SheDeck6.png", caption: "Make your own fingerboard station." }
+    ],
+    thumbnail: "images/blog/Thumbs/SheDeck_Thumb_2025.png"
+  },
+
+  //post 2
+  {
+    id: "post-2",
+    title: "Dry Surf: Local Skateboarding History",
+    location: "Tempe History Museum",
+    date: "May 2025",
+    content: `<p>A show by the community, for the community, that's what made this one special. I learned so much about early skater culture putting this exhibit together, more than I expected going in.</p>
+    <p>Opening night drew a great crowd. 525 people came out to see the show. People lined up out the door for shirts and I still spot people wearing Dry Surf tees around town. We sold out of skate decks too, and even the table decorations went home with guests as keepsakes.</p>`,
+    images: [
+      { src: "images/blog/2025/DrySurf_2.jpg", caption: "Curators Josh Roffler and Rob Locker at the opening of Dry Surf. Photo courtesy of Tim Trumble" },
+      { src: "images/blog/2025/DrySurf_1.jpg", caption: "" },
+      { src: "images/blog/2025/DrySurf_3.jpg", caption: "These folks printed my ad and made their own t-shirts. Photo courtesy of Tim Trumble" }
+    ],
+    thumbnail: "images/blog/Thumbs/DrySurf_Thumb_2025.jpg"
+  },
+
+  //post 1
+  {
+    id: "post-1",
+    title: "Re:Cycle Art Show Benefiting Bike Saviours",
+    location: "Rocket Space Gallery at Danelle Plaza",
+    date: "April 2025",
+    content: `<p>Bike Saviours is the heart of the Tempe cycling community, and it's helped me more times than I can count, especially when cycling was my only way to get around. Back then, I felt like the only person in the world without a car. That changed the moment I took my first Intro to Bike Maintenance course in 2018, and it's been home base ever since.</p>
+    <p>My drawing shows my bike on the Tempe Town Lake pedestrian bridge. I drew this right after getting this bike but before converting it to electric. I wanted to capture that clean, simple frame before the motor and battery changed it for good. It sold for $100 donation to Bike Saviours.</p>
+    <p>"Twin Schwinns" came from a photo taken during an overnight stay at the Castle Rock Inn in Bisbee, AZ. This is one of the first pieces I ever finished on a watercolor block. My mom is currently its proud owner.</p>`,
+    images: [
+      { src: "images/blog/2025/schwinns.jpg", caption: "Twin Schwinns — watercolor and ink, inspired by a night in Bisbee" },
+      { src: "images/blog/2025/bikebridge.jpg", caption: "My bike on the Tempe Town Lake bridge — graphite, before the electric conversion" },
+      { src: "images/blog/2025/BSArtShow_03.jpg", caption: "A quieter moment from the show" }
+    ],
+    thumbnail: "images/blog/Thumbs/Recycle_Thumb_2025.jpg"
+  },
+];
+
+    let currentPostIndex = 0;
+    let currentSlideIndex = 0;
+
+    const carouselImage = document.getElementById("carousel-image");
+    const carouselCaption = document.getElementById("carousel-caption");
+    const carouselThumbnails = document.getElementById("carousel-thumbnails");
+    const postTitle = document.getElementById("post-title");
+    const postLocationDate = document.getElementById("post-location-date");
+    const postContent = document.getElementById("post-content");
+    const postListContainer = document.getElementById("post-list");
+    const postBreadcrumb = document.getElementById("post-breadcrumb");
+
+    function renderPostList() {
+  postListContainer.innerHTML = "";
+
+  posts.forEach((post, index) => {
+    const item = document.createElement("div");
+    item.className = "post-list-item";
+    item.setAttribute("role", "button");
+    item.setAttribute("tabindex", "0");
+    item.setAttribute("aria-label", `View post: ${post.title}`);
+
+    item.onclick = () => showPost(index);
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showPost(index);
+      }
+    });
+
+    const thumb = document.createElement("img");
+    thumb.src = post.thumbnail;
+    thumb.alt = `Thumbnail for ${post.title}`;
+
+    const infoDiv = document.createElement("div");
+
+    const titleEl = document.createElement("h5");
+    titleEl.textContent = post.title;
+
+    const dateEl = document.createElement("p");
+    dateEl.textContent = post.date;
+
+    infoDiv.appendChild(titleEl);
+    infoDiv.appendChild(dateEl);
+
+    item.appendChild(thumb);
+    item.appendChild(infoDiv);
+    postListContainer.appendChild(item);
+  });
+}
+
+
+    function showPost(index) {
+      currentPostIndex = index;
+      currentSlideIndex = 0;
+      const post = posts[index];
+
+      // Update the post content area
+      postTitle.textContent = post.title;
+      postLocationDate.innerHTML = `<strong>${post.location}</strong> — ${post.date}`;
+      postContent.innerHTML = post.content;
+
+      // Update breadcrumb trail
+      postBreadcrumb.innerHTML =
+        `<a href="index.html">Home</a> / <a href="blog.html">Blog</a> / <span class="breadcrumb-current">${post.title}</span>`;
+
+      // Build the thumbnail strip for this post, then show the first slide
+      renderThumbnails();
+      updateCarousel();
+
+      // Scroll to top of content area smoothly
+      document.getElementById("top").scrollIntoView({ behavior: "smooth" });
+
+      // Highlight active post in sidebar
+document.querySelectorAll(".post-list-item").forEach((item, i) => {
+  item.classList.toggle("active", i === index);
+});
+    }
+
+    function renderThumbnails() {
+      const post = posts[currentPostIndex];
+      carouselThumbnails.innerHTML = "";
+
+      if (!post || post.images.length === 0) return;
+
+      post.images.forEach((slide, i) => {
+        const thumb = document.createElement("img");
+        thumb.src = slide.src;
+        thumb.alt = `Thumbnail: ${slide.caption}`;
+        thumb.className = i === currentSlideIndex ? "active-thumb" : "";
+        thumb.setAttribute("role", "button");
+        thumb.setAttribute("tabindex", "0");
+        thumb.setAttribute("aria-label", `Show image: ${slide.caption}`);
+        thumb.onclick = () => goToSlide(i);
+        thumb.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            goToSlide(i);
+          }
+        });
+        carouselThumbnails.appendChild(thumb);
+      });
+    }
+
+    function updateCarousel() {
+      const post = posts[currentPostIndex];
+      if (!post || post.images.length === 0) {
+        carouselImage.src = "";
+        carouselCaption.textContent = "";
+        return;
+      }
+      const slide = post.images[currentSlideIndex];
+      carouselImage.src = slide.src;
+      carouselImage.alt = slide.caption;
+      carouselCaption.textContent = slide.caption;
+
+      // Sync the active state on the thumbnail strip
+      carouselThumbnails.querySelectorAll("img").forEach((thumb, i) => {
+        thumb.classList.toggle("active-thumb", i === currentSlideIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentSlideIndex = index;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      const post = posts[currentPostIndex];
+      currentSlideIndex = (currentSlideIndex - 1 + post.images.length) % post.images.length;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      const post = posts[currentPostIndex];
+      currentSlideIndex = (currentSlideIndex + 1) % post.images.length;
+      updateCarousel();
+    }
+
+
+    // Initialize
+    renderPostList();
+
+    // Open the post matching the URL hash (e.g. blog.html#post-2),
+    // falling back to the first post if there's no hash or no match.
+    const initialId = window.location.hash.replace("#", "");
+    const initialIndex = posts.findIndex(p => p.id === initialId);
+    showPost(initialIndex !== -1 ? initialIndex : 0);
+  </script>
+
+
+  <footer class="footer">
+    <div class="footer-layout">
+      <div>
+        <h2 class="footer-text">Who is Charmin' Lady?</h2>
+        <p class="footer-text">Charmin' Lady is a B-25 bomber. She features an illustration of my grandma, Alice Patrick, who was employed at the Fairfax manufacturing plant at the time this plane was built.</p>
+      </div>
+      <a href="https://pacificwrecks.com/aircraft/b-25/42-87444.html" target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Learn about the Charmin' Lady B-25 bomber (opens in a new tab)">
+        <img src="images/Charmin-Lady-photo-01.jpg" class="real-alice" alt="Archival photo of the real Charmin' Lady B-25 bomber and crew">
+      </a>
+    </div>
+  </footer>
+ 
+</body>
+</html>

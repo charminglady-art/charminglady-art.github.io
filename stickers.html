@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://charminlady.com/stickers.html">
+  <link rel="icon" href="images/FavIcon.jpg" type="image/jpg" />
+  <link rel="stylesheet" href="styles.css" type="text/css" media="all">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <title>Stickers | Charmin' Lady</title>
+
+  <meta name="description" content="Stickers | Charmin' Lady">
+  <meta property="og:site_name" content="Charmin' Lady">
+  <meta property="og:url" content="https://charminlady.com/stickers.html">
+  <meta property="og:title" content="Stickers | Charmin' Lady">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Stickers | Charmin' Lady">
+
+  <style>
+
+  .sticker-media-row {
+    display: flex;
+    flex-wrap: nowrap; /* stay in one row instead of wrapping */
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  /* Space between stacked rows within the same section, without
+     adding unwanted space after the section-inner heading */
+  .sticker-media-row + .sticker-media-row {
+    margin-top: 1rem;
+  }
+
+  .sticker-media-row img,
+  .sticker-media-row video,
+  .sticker-video-item {
+    flex: 1 1 300px; /* grow/shrink from a 300px starting point */
+    max-width: 300px; /* never grow past the original size */
+    aspect-ratio: 1 / 1; /* stay square as it shrinks */
+    width: auto;
+    height: auto;
+    min-width: 0; /* lets flex items shrink below their content size */
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Sketch/sticker images open the shared lightbox on click, same
+     as .image-scroller-track images. Videos are excluded from this
+     (they toggle play/pause instead, handled by their own script). */
+  .sticker-media-row img {
+    cursor: zoom-in;
+  }
+
+
+.sticker-media-row.sticker-media-row--portrait img,
+.sticker-media-row.sticker-media-row--portrait video,
+.sticker-media-row.sticker-media-row--portrait .sticker-video-item {
+  flex-basis: 300px;
+  max-width: 300px;
+  aspect-ratio: 3 / 4;
+}
+
+  .sticker-video-item {
+    position: relative;
+    flex-shrink: 1;
+  }
+
+  .sticker-video-item video {
+    width: 100%;
+    height: 100%;
+    cursor: pointer; 
+  }
+
+  .sticker-video-toggle {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background-color 0.2s ease, opacity 0.3s ease;
+  }
+
+  .sticker-video-toggle:hover,
+  .sticker-video-toggle:focus-visible {
+    background-color: #ea118d;
+  }
+
+  /* Bigger, centered play button for videos that don't autoplay
+     since clicking it is the only way to start them */
+  .sticker-video-item:not([data-autoplay]) .sticker-video-toggle {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    font-size: 1.6rem;
+  }
+
+  /* Fades the button out once it's done its job */
+  .sticker-video-toggle.is-faded {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Stack sticker rows into a single column on mobile, matching the
+     site's usual 768px breakpoint. Each image/video/video-item goes
+     full width instead of shrinking to fit a single row. */
+  @media (max-width: 768px) {
+    .sticker-media-row {
+      flex-direction: column;
+    }
+
+    .sticker-media-row img,
+    .sticker-media-row video,
+    .sticker-video-item {
+      max-width: 100%;
+      width: 100%;
+      flex-basis: auto;
+    }
+
+    .sticker-media-row.sticker-media-row--portrait img,
+    .sticker-media-row.sticker-media-row--portrait video,
+    .sticker-media-row.sticker-media-row--portrait .sticker-video-item {
+      max-width: 100%;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="scroller-lightbox" id="scroller-lightbox">
+    <button class="scroller-lightbox-close" id="scroller-lightbox-close" aria-label="Close enlarged image">&times;</button>
+    <img id="scroller-lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ============ TOP BAR — logo left, nav right, own row (no overlap) ============ -->
+  <div class="project-top-bar">
+    <div class="logo logo-small">
+      <a href="index.html">
+        <img src="images/logos/CharminLady_SmallLogo.webp" alt="Charmin' Lady home">
+      </a>
+    </div>
+
+    <nav class="overlay-nav" aria-label="Portfolio filters">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav-list" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul id="primary-nav-list">
+      <li class="has-dropdown">
+        <a href="index.html#all" data-filter="all">Projects</a>
+        <ul class="dropdown">
+          <li><a href="index.html#exhibits" data-filter="exhibits">Exhibits</a></li>
+          <li><a href="index.html#logo-design" data-filter="logo-design">Logo Design</a></li>
+          <li><a href="index.html#illustration" data-filter="illustration">Illustration</a></li>
+          <li><a href="index.html#stickers" data-filter="stickers">Stickers</a></li>
+          <li><a href="index.html#campaign" data-filter="campaign">Campaign</a></li>
+          <li><a href="index.html#tshirt" data-filter="tshirt">T-Shirts</a></li>
+          <li><a href="index.html#book-layout" data-filter="book-layout">Book Layout</a></li>
+          <li><a href="index.html#video" data-filter="video">Video</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+  </div>
+
+  <main id="main-content">
+
+    <div class="project-meta">
+      <!-- ============ TITLE — left column ============ -->
+      <div class="meta-title-col">
+        <div class="project-intro">
+          <h1>Stickers</h1>
+        </div>
+      </div>
+
+      <!-- ============ META FIELDS — right column ============ -->
+      <div class="meta-fields-col">
+        <div>
+          <p>Many clients and designs throughout the years</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tempe History Museum -->
+    <section class="case-study">
+      <div class="section-inner">
+        <h2>Tempe History Museum</h2>
+        <p>The Tempe History Museum wanted stickers to give out to kids. I decided to make them about the two things most beloved by kids at the museum, the fire engine and the farm truck.</p>
+        <br>
+        <div class="sticker-media-row">
+          <img src="images/Projects/Stickers/FireTruck_sketch.png" alt="A pencil sketch of the Tempe Fire Engine number 2.">
+          <div class="sticker-video-item" data-autoplay>
+            <video class="sticker-video" src="images/Projects/Stickers/FireTruck.mp4" muted loop playsinline aria-label="A video of the fire truck being drawn in vector art."></video>
+            <button type="button" class="sticker-video-toggle" aria-pressed="false" aria-label="Play video">
+              <span class="toggle-icon" aria-hidden="true">&#9654;</span>
+            </button>
+          </div>
+          <img src="images/Projects/Stickers/FireTruck_sticker.png" alt="Finished product of the Tempe Fire Truck sticker.">
+        </div>
+
+        <div class="sticker-media-row">
+          <img src="images/Projects/Stickers/FarmTruck_sketch.png" alt="A pencil sketch of the farm truck found in the kids' area of the Tempe History Museum.">
+          <div class="sticker-video-item">
+            <video class="sticker-video" src="images/Projects/Stickers/FarmTruck.mp4" muted loop playsinline aria-label="A video of the farm truck being drawn in vector."></video>
+            <button type="button" class="sticker-video-toggle" aria-pressed="false" aria-label="Play video">
+              <span class="toggle-icon" aria-hidden="true">&#9654;</span>
+            </button>
+          </div>
+          <img src="images/Projects/Stickers/FarmTruck_sticker.png" alt="Finished product of the Tempe farm truck sticker. Two kids have been added to the driver's and passenger's seats.">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tempe Center for the Arts -->
+     <section class="case-study-gray">
+      <div class="section-inner">
+        <h2>Tempe Center for the Arts</h2>
+        <p>Tempe Center for the Arts wanted stickers to increase their brand recognition. I decided to make them about the building, since it's such a unique Tempe icon.</p>
+        <br>
+        <div class="sticker-media-row">
+          <img src="images/Projects/Stickers/TCA_Neon_Sketch.jpg" alt="The letters t, c, a drawn in red marker.">
+          <img src="images/Projects/Stickers/TCA_Neon_Sticker.jpg" alt="A hand holds a 'tca Tempe Center for the Arts' sticker in front of a neon marquee with a blurred neon sign reading 'THEATER.'">
+          <img src="images/Projects/Stickers/TCA_Neon_sticker.png" alt="Logo with neon-style 'tca' lettering above the words 'Tempe Center for the Arts' on a black background.">
+        </div>
+      </div>
+    </section>
+
+    <!-- Thai Chili 2go -->
+    <section class="case-study">
+      <div class="section-inner">
+        <h2>Thai Chili 2go</h2>
+        <p>Thai Chili 2go wanted to deepen their customer loyalty with stickers. It's neat to see how these changed after client feedback. I really enjoyed figuring out how to draw noodles.</p>
+        <div class="sticker-media-row">
+          <img src="images/Projects/Stickers/wok_sketch.png" alt="Black-and-white sketch of a steaming bowl of noodles labeled 'THAI HOT,' with chopsticks and a small lime slice.">
+          <div class="sticker-video-item" data-autoplay>
+            <video class="sticker-video" src="images/Projects/Stickers/Wok.mp4" muted loop playsinline aria-label="A video of the wok and noodles sticker being drawn in vector."></video>
+            <button type="button" class="sticker-video-toggle" aria-pressed="false" aria-label="Play video">
+              <span class="toggle-icon" aria-hidden="true">&#9654;</span>
+            </button>
+          </div>
+          <img src="images/Projects/Stickers/wok_sticker.png" alt="A fiery cartoon wok tosses steaming Thai noodles amid bright orange flames, with 'Thai hot! Why not?' lettering, creating a playful, spicy-food logo.">
+        </div>
+
+        <div class="sticker-media-row sticker-media-row--portrait">
+          <img src="images/Projects/Stickers/Noodles_sketch.png" alt="Pencil sketch of a steaming bowl of noodles with chopsticks, labeled 'PAD THAI'; the hand-drawn monochrome style feels simple and playful.">
+          <img src="images/Projects/Stickers/noodles_ad.png" alt="Promotional ad for $2 Thai Hot stickers: a playful noodle-cup sticker decorates a teal travel tumbler, with bold 'Just dropped!' text.">
+          <img src="images/Projects/Stickers/Noodles_sticker.png" alt="Chopsticks lift steaming noodles from a red takeaway bowl topped with herbs.">
+        </div>
+
+        <div class="sticker-media-row">
+          <img src="images/Projects/Stickers/Reindeer_sketch.png" alt="Pencil sketch of a hipster reindeer eating noodles, wearing a beanie and plaid jacket, framed by an oval; whimsical, playful tone.">
+           <div class="sticker-video-item">
+            <video class="sticker-video" src="images/Projects/Stickers/Reindeer.mp4" muted loop playsinline aria-label="A video of the hipster reindeer eating noodles design being drawn in vector."></video>
+            <button type="button" class="sticker-video-toggle" aria-pressed="false" aria-label="Play video">
+              <span class="toggle-icon" aria-hidden="true">&#9654;</span>
+            </button>
+          </div>
+          <img src="images/Projects/Stickers/Reindeer_sticker.png" alt="A cheerful hipster reindeer chef in an orange hat holds a curry bowl inside a teal-and-white badge reading 'Less worry, more curry,' with a playful, upbeat feel.">
+        </div>
+
+        <div class="sticker-media-row">
+          <img src="images/Projects/Stickers/Santa_sketch.png" alt="Pencil sketch of a hipster-styled Santa Claus wearing dark sunglasses and sipping a thai tea through a straw.">
+           <div class="sticker-video-item">
+            <video class="sticker-video" src="images/Projects/Stickers/Santa.mp4" muted loop playsinline aria-label="A video of the Santa sticker being drawn in vector."></video>
+            <button type="button" class="sticker-video-toggle" aria-pressed="false" aria-label="Play video">
+              <span class="toggle-icon" aria-hidden="true">&#9654;</span>
+            </button>
+          </div>
+          <img src="images/Projects/Stickers/Santa_sticker.png" alt="A hipster-styled Santa Claus wearing dark sunglasses and sipping a thai tea through a straw.">
+        </div>
+      </div>
+    </section>
+
+    <!-- Thank You -->
+    <h4>Thank you!</h4>
+
+    <p class="back-to-gallery"><a href="index.html">&larr; Back to all projects</a></p>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-layout">
+      <div>
+        <h2 class="footer-text">Who is Charmin' Lady?</h2>
+        <p class="footer-text">Charmin' Lady is a B-25 bomber. She features an illustration of my grandma, Alice Patrick, who was employed at the Fairfax manufacturing plant at the time this plane was built.</p>
+      </div>
+      <a href="https://pacificwrecks.com/aircraft/b-25/42-87444.html" target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Learn about the Charmin' Lady B-25 bomber (opens in a new tab)">
+        <img src="images/Charmin-Lady-photo-01.jpg" class="real-alice" alt="Archival photo of the real Charmin' Lady B-25 bomber and crew">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Powers the mobile hamburger toggle for .overlay-nav
+    (function () {
+      var nav = document.querySelector('.overlay-nav');
+      var toggle = document.querySelector('.nav-toggle');
+      if (!nav || !toggle) return;
+
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // Powers .sticker-video-item videos:
+    // - only items marked with the data-autoplay attribute try to play
+    //   on their own; the rest sit paused until clicked
+    // - off by default for users with prefers-reduced-motion set
+    // - autoplay-eligible videos play once they're scrolled into view
+    //   and pause when scrolled out, so nothing decodes off-screen
+    // - clicking anywhere on a video toggles play/pause (videos never
+    //   open the lightbox)
+    // - the corner button also toggles play/pause
+    // - once a viewer manually plays or pauses a video, that choice
+    //   sticks; it won't auto-resume just from scrolling back into view
+    (function () {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      document.querySelectorAll('.sticker-video-item').forEach(function (item) {
+        var video = item.querySelector('.sticker-video');
+        var toggle = item.querySelector('.sticker-video-toggle');
+        var icon = toggle.querySelector('.toggle-icon');
+        var eligibleForAutoplay = item.hasAttribute('data-autoplay');
+        // Starts paused unless this item is marked for autoplay
+        // (and the viewer doesn't prefer reduced motion)
+        var userPaused = prefersReducedMotion || !eligibleForAutoplay;
+
+        function setPlayingUI(isPlaying) {
+          toggle.setAttribute('aria-pressed', String(isPlaying));
+          toggle.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
+          icon.innerHTML = isPlaying ? '&#10073;&#10073;' : '&#9654;';
+        }
+
+        function pause() {
+          video.pause();
+          setPlayingUI(false);
+        }
+
+        function play() {
+          video.play().catch(function () {});
+          setPlayingUI(true);
+          if (!eligibleForAutoplay) {
+            toggle.classList.add('is-faded');
+          }
+        }
+
+        function toggleVideo() {
+          if (video.paused) {
+            userPaused = false;
+            play();
+          } else {
+            userPaused = true;
+            pause();
+          }
+        }
+
+        // Toggle button: play or pause
+        toggle.addEventListener('click', toggleVideo);
+
+        // Clicking anywhere on the video also toggles play/pause
+        video.addEventListener('click', toggleVideo);
+
+        // Autoplay only for items marked data-autoplay, only while
+        // in view, and only if the viewer hasn't manually paused it
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              if (!userPaused && !prefersReducedMotion) {
+                play();
+              }
+            } else {
+              pause();
+            }
+          });
+        }, { threshold: 0.25 });
+
+        observer.observe(video);
+      });
+    })();
+  </script>
+
+  <script>
+    // Lightbox: click any image inside .image-scroller-track or
+    // .sticker-media-row to enlarge it. Videos inside .sticker-video-item
+    // are intentionally excluded since they toggle play/pause instead.
+    // Uses a delegated click listener (attached to document) instead of
+    // per-image listeners, because the image-scroller script above
+    // duplicates the track's images via innerHTML += innerHTML, which
+    // would wipe out any listeners bound directly to the original images.
+    (function () {
+      var lightbox = document.getElementById('scroller-lightbox');
+      var lightboxImg = document.getElementById('scroller-lightbox-img');
+      var closeBtn = document.getElementById('scroller-lightbox-close');
+      if (!lightbox || !lightboxImg || !closeBtn) return;
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightbox.classList.add('is-open');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightboxImg.src = '';
+      }
+
+      document.addEventListener('click', function (e) {
+        var img = e.target.closest('.image-scroller-track img, .sticker-media-row img');
+        if (img) openLightbox(img.src, img.alt);
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
